@@ -231,8 +231,8 @@ img {
 
 .article {
   float: left;
-  width: 30%;
-  margin: 1% 1.5%;
+  width: calc(100%/3);
+  padding: 1% 1.5%;
 }
 
 /*=======================================*

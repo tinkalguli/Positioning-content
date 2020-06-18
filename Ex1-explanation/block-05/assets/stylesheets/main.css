@@ -145,6 +145,15 @@ a {
   text-transform: uppercase;
 }
 
+.clearfix::after,
+.clearfix::before {
+  content: "";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
 /*=======================================*
 
                   typography
@@ -217,16 +226,6 @@ li {
 img {
   max-width: 100%;
   height: auto;
-}
-
-.clearfix::after,
-.clearfix::before {
-  content: "";
-  display: table;
-}
-
-.clearfix::after {
-  clear: both;
 }
 
 .article {

@@ -207,7 +207,7 @@ Developers use cf or clearfix class for this technique so that it can be use in 
   <!-- CSS -->
 
   header, .parent, .col, footer {
-    bacground: #bada55;
+    background: #bada55;
     padding: 50px;
     box-sizing: border-box;
   }
@@ -227,3 +227,136 @@ Developers use cf or clearfix class for this technique so that it can be use in 
     clear: both;
   }
 ```
+
+## Reusable and Flexible Layouts
+
+  Whatever technique we use in our web pages but our page should be reusable and flexible.
+
+### Reusable Layout
+
+  Reusable layout stands for consisting modular class which can be reused again and again. Let's take an example:
+
+  ```
+  <!-- Html -->
+
+  <!-- section one -->
+  <section class="container cf">
+    <article class="article">*****</article>
+    <article class="article">*****</article>
+    <article class="article">*****</article>
+  </section>
+
+  <!-- section two -->
+  <section class="container cf">
+    <article class="article">*****</article>
+    <article class="article">*****</article>
+    <article class="article">*****</article>
+  </section>
+
+  /* Css style */
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .article {
+    float: left;
+    width: 30%;
+    margin: 1.5%;
+  }
+
+  .cf:before,
+  .cf:after {
+    content: "";
+    display: table;
+  }
+
+  .cf:after {
+    clear: left;
+  }
+  ```
+
+  In this example we use "article" class as a modular class and used for each article and also we use the whole css code for the each section. We didn't write css for each section separately. That's called reusable layout.
+
+###  Flexible Layout
+
+  Flexible means our page layout should be resized according to the screen size. To create a flexible layout we have to create flexible container as well as columns too.
+
+#### Uses of relative units
+
+  For make a flexible box or column or container we can use relative units like percentage(%), viewport width(vw), em etc.
+
+  ```
+  <section>
+    <div class="column">......</div>
+  </section>
+
+  section {
+    width: 1000px;
+  }
+  .column {
+    width: 40%;
+  }
+  ```
+
+  In the above example we assigned a width of 50% to the "column" class thus the column class take the width of 400px and when the screen size decreased the size of the column will be 40% of the container means it will also decrease according to the size of the container.
+
+#### flexible container
+
+  To create a flexible container we can use "max-width" instead of "width" so that when the screen size will decrease it will automatically fit to the screen. If we use only "width" , when the screen get smaller than it will give a horizontal scrollbar. So it is better to use "max-width" to create a flexible container.
+
+```
+.container {
+    max-width: 990px;
+    margin: 0 auto;
+    padding: 0 30px;
+  }
+```
+
+  For dive deep into these topics we can use the example which is given in the "reusable layout" topic.
+
+  ```
+  <!-- Html -->
+
+  <!-- section one -->
+  <section class="container cf">
+    <article class="article">*****</article>
+    <article class="article">*****</article>
+    <article class="article">*****</article>
+  </section>
+
+  <!-- section two -->
+  <section class="container cf">
+    <article class="article">*****</article>
+    <article class="article">*****</article>
+    <article class="article">*****</article>
+  </section>
+
+  /* Css style */
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .article {
+    float: left;
+    width: 30%;
+    margin: 1.5%;
+  }
+
+  .cf:before,
+  .cf:after {
+    content: "";
+    display: table;
+  }
+
+  .cf:after {
+    clear: left;
+  }
+  ```
+
+  In this example "container" class have a max-width property which made the container flexible and we have a "margin" property which will center the container . The "0" value is for top and bottom and "auto" value is for left and right which will divide the margin equally to the left and right. Then we have also a 'padding' property which will helps the user to see the content properly . Padding should be used because when a page render in a small screen the content goes from left edge to right edge. It can be difficult to read for the users. So we use padding to the left and right for a breathing space .   

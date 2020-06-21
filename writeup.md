@@ -359,4 +359,133 @@ Developers use cf or clearfix class for this technique so that it can be use in 
   }
   ```
 
-  In this example "container" class have a max-width property which made the container flexible and we have a "margin" property which will center the container . The "0" value is for top and bottom and "auto" value is for left and right which will divide the margin equally to the left and right. Then we have also a 'padding' property which will helps the user to see the content properly . Padding should be used because when a page render in a small screen the content goes from left edge to right edge. It can be difficult to read for the users. So we use padding to the left and right for a breathing space .   
+  In this example "container" class have a max-width property which made the container flexible and we have a "margin" property which will center the container . The "0" value is for top and bottom and "auto" value is for left and right which will divide the margin equally to the left and right. Then we have also a 'padding' property which will helps the user to see the content properly . Padding should be used because when a page render in a small screen the content goes from left edge to right edge. It can be difficult to read for the users. So we use padding to the left and right for a breathing space .
+
+
+
+##   Uniquely Positioning Element
+
+  When we want an element positioned in a exact place then the 'position' property comes handy. Position property have many values like static, relative, absolute, fixed etc.
+
+  The position property have a connection with box-offset properties - top, right, left, and bottom. By using these we can positioned an element in any exact place .
+
+### Position Static
+
+  By default, every element in a document is a static element and does not accept any box-offset properties. It will be in the normal flow of the page, won't be repositioned.
+
+  However, the default static value for position property can be overwritten with either relative or absolute or fixed.
+
+### Position Relative
+
+  The relative value accepts all the box-offset properties. We can precisely position the element by shifting it from its default position in any direction(top, right, bottom, or left) still it will be in the normal flow of the page. The relatively positioned element will be shifted from its original position, without disturbing another element on the page. The original place of a relatively positioned element won't be taken by any element, it will remain empty. However, the relatively positioned element can overlap or underlap other elements, without disturbing their original positions. It won't push or shifts other elements on the page. If for the relatively positioned element, suppose both top and bottom box-offset properties are declared. The top property will take priority. For the left and right offsets depends upon the language which will take priority. For example, if the page is English, the left offset will be having priority and for Arabic pages right offset will be given priority.
+
+  ```
+  <div class="box box-1">......</div>
+  <div class="box box-2">......</div>
+  <div class="box box-3">......</div>
+
+  .box {
+    width: 100px;
+    height: 100px;
+    background: green;
+  }
+  .box-2 {
+    position: relative;
+    top: 60px;
+    left: 60px;
+  }
+  ```
+
+  In the above example the second box will shift from the top towards the bottom and left towards the right by 60px. But it won't disturb the position of the other two boxes on the page. Also, the original position of the element will be maintained.
+
+
+### Position Absolute
+
+  The absolutely positioned elements accept all the box-offsets however they are removed from the normal flow of the page and lose its original position. And that lost position will be taken by the upcoming element. Generally it can position in relation to its parent element which is already relatively or absolutely positioned. If the parent element is not relatively or absolutely positioned then the element will be positioned in relation to the body of the page. The display property may also change if the element is absolutely positioned. A block-level elements will start taking space according to the content. At the same time, an inline-level element may start accepting the width and height. If no box-offset properties are specified for absolute elements, the element will remain absolutely positioned in its original position but on the Z-axis and  will be lost the X and Y plane. Therefore the next element will take the original position of the absolute element and the absolute element will be on top of it. The absolute element can be positioned in relation to its parent or the body of the page. To position an element absolutely in relation to its parent the parent element must be either relatively or absolutely positioned. As like the relative position absolute also give priority to the top (between top and bottom) and left right offset depends on the language. The element takes the whole specified width. Combining all the four box-offset the element takes the specified width and height.
+
+  ```
+  <div class="box box-1">......</div>
+  <section class="parent-box">
+    <div class="box box-2">......</div>
+  </section>
+  <div class="box box-3">......</div>
+
+
+  box {
+    width: 100px;
+    height: 100px;
+    background: green;
+  }
+  .parent-box {
+    position: relative;
+  }
+  .box-2 {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  ```
+
+
+  In the above example the box-2 is absolutely positioned with relative to its parent, because the parent-box has been relatively positioned. Therefore the box-2 will sit at the right bottom corner of the parent-box. If the parent element would not have relatively positioned the element would be sitting right bottom corner of body of the page.
+
+
+### Position Fixed
+
+Position fixed is similar to absolute positioning. However, the fixed positioning will be always relative to the browser viewport. The fixed positioned elements do not scroll with the page. Its position will be fixed relative to the browser viewport no matter where you stand on the page. Similar to the absolute element, the display property for the fixed element may also change. Fixed block-level elements may take space according to the content it wraps. At the same time, an inline-level element may start accepting width and height.
+
+```
+.box {
+    position: fixed;
+    right: 60px;
+    bottom: 60px;
+  }
+```
+
+
+### Z-index Property
+
+  Using z-index property you can decide the order of an element, which will be on top and which will be at the bottom. The z-index property only works with relative, absolute, and fixed elements. By default, every element has 0 value for the z-index property. The element with the highest z-index value will appear on top and with the lowest value will at the bottom.
+
+
+```
+<section class="parent-box">
+  <div class="box box-1">1</div>
+  <div class="box box-2">2</div>
+  <div class="box box-3">3</div>
+</section>
+
+.parent-box {
+  height: 200px;
+  background: #bada55;
+  position: relative
+}
+.box {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+}
+.box-1 {
+  left: 10px;
+  top: 10px;
+  background: red;
+  z-index: 1;
+}
+.box-2 {
+  left: 30px;
+  top: 30px;
+  background: blue;
+  z-index: 2;
+}
+.box-3 {
+  left: 50px;
+  top: 50px;
+  background: green;
+  z-index: 3
+}
+```
+
+  Here, the box-3 is having the highest z-index value, therefore, it will be on top and box-1 is having the lowest z-index value so it will be at the bottom.
+
+
+>I have search for the sticky position value also it's    very interesting . We see this type of positioned element in  some pages where some element stick to the window according to the scroll.

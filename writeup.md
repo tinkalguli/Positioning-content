@@ -108,7 +108,7 @@ span {
 
 Clearing floats won't return each floated elements to the normal flow so we should use containing floats technique. We have two containing floats technique :
 
-####1. Overflow technique
+1. Overflow technique
 
   Overflow technique has many values the popular values are auto, scroll, hidden etc. We can use 'overflow: auto' but it  may add a scrollbar to the element in internet explorer on an Apple Computer. Instead we can use 'overflow: hidden' .Still the problem with hidden is that few styles like box-shadow may cut off outside the parent. It's just that different browsers treat overflow property differently.
 
@@ -146,7 +146,7 @@ Clearing floats won't return each floated elements to the normal flow so we shou
 
   ```
 
-####2. Cleafix Technique
+2. Cleafix Technique
 
   This is the best and advanced technique to containing a floats. In this method, we define some sort rules in CSS to the parent element containing floated elements.
 

@@ -159,6 +159,9 @@ header {
 
 .sec-second {
   color: #5385C1;
+}
+
+.padding{
   padding:10% 0;
 }
 
@@ -184,8 +187,6 @@ header {
 
 .sec-third {
   background: #5385C1;
-  text-align: center;
-  padding: 10% 0;
 }
 
 .box{
@@ -198,6 +199,7 @@ header {
   margin: 2.5%;
   padding: 2%;
   border: 1px solid #fff;
+  text-align: center;
 }
 
 .intro:first-child {
@@ -225,7 +227,6 @@ header {
 
 .sec-fourth {
   color: #5385C1;
-  padding: 10% 0;
 }
 
 .art-2 {
@@ -252,7 +253,7 @@ header {
 
 /*=======================================*
 
-                  horizontal line
+              horizontal line
 
 *========================================*/
 
